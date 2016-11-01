@@ -8,6 +8,11 @@ namespace ImdbDAL
 {
     public class ImdbContext : DbContext
     {
+		public ImdbContext()
+			: base(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Imdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+		{
+		}
+
 		public DbSet<Movie> Movies { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Person> Persons { get; set; }
