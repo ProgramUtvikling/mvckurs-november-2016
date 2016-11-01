@@ -1,0 +1,22 @@
+﻿@model Movie
+
+<h2>@Model.Title (@Model.ProductionYear)</h2>
+<p>@Model.OriginalTitle</p>
+
+<p>Filmens lengde: @Model.RunningLength</p>
+<p>Sjanger: @Model.Genre.Name</p>
+
+<p>Regisører: @Html.PrettyJoin(Model.Directors)</p>
+<p>Produsenter: @Html.PrettyJoin(Model.Producers)</p>
+
+<p>@Model.Description</p>
+
+
+<h3>Skuespillere</h3>
+@Html.Partial("_Persons", Model.Actors)
+
+<h3>Regisører</h3>
+@Html.Partial("_Persons", Model.Directors)
+
+<h3>Produsenter</h3>
+@Html.Partial("_Persons", Model.Producers)

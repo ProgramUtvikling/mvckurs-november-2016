@@ -10,23 +10,40 @@ namespace WebApplication1.Controllers
 {
     public class MovieController : Controller
     {
-        public string Index()
+        public ViewResult Index()
         {
-            return "MovieController.Index()";
-        }
-        public string Details(string id)
-        {
-            return $"MovieController.Details({id})";
-        }
-        public string Genres()
-        {
-            return "MovieController.Genres()";
+			var db = new ImdbDAL.ImdbContext();
+			var movies = db.Movies.ToList();
+			ViewData.Model = movies;
+			return View();
         }
 
-        [Route("[Controller]/Genre/{genrename}")]
-        public string MoviesByGenre(string genrename)
+        public ViewResult Details(string id)
         {
-            return $"MovieController.Genre({genrename})";
-        }
-    }
+			var db = new ImdbDAL.ImdbContext();
+			var movie = db.Movies.Find(id);
+			ViewData.Model = movie;
+			return View();
+		}
+		public ViewResult Genres()
+        {
+			var db = new ImdbDAL.ImdbContext();
+			var genres = db.Genres.ToList();
+			ViewData.Model = genres;
+			return View();
+		}
+
+		[Route("[Controller]/Genre/{genrename}")]
+        public ViewResult MoviesByGenre(string genrename)
+        {
+			var db = new ImdbDAL.ImdbContext();
+			var movies = from movie in db.Movies
+						 where movie.Genre.Name == genrename
+						 select movie;
+
+			ViewData.Model = movies;
+			ViewBag.Genre = genrename;
+			return View("Index");
+		}
+	}
 }

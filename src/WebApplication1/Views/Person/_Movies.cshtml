@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Movie>
+
+<ul>
+	@foreach (var movie in Model)
+	{
+		<li>
+			<a asp-action="Details" asp-controller="Movie" asp-route-id="@movie.MovieId">@movie.Title</a>
+		</li>
+	}
+</ul>

@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Movie>
+
+<h2>Filmer</h2>
+<p>@ViewBag.Genre</p>
+<ul>
+	@foreach (var movie in Model)
+	{
+		<li>
+			@Html.ActionLink(movie.Title, "Details", "Movie", new { id=movie.MovieId }, null)
+		</li>
+	}
+</ul>

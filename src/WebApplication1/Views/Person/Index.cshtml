@@ -1,0 +1,11 @@
+﻿@model WebApplication1.Controllers.PersonListModel
+
+<h2>Liste over @Model.Title</h2>
+<ul>
+	@foreach (var person in Model.Persons)
+	{
+		<li>
+			<a asp-action="Details" asp-controller="Person" asp-route-id="@person.PersonId">@person.Name</a>
+		</li>
+	}
+</ul>
