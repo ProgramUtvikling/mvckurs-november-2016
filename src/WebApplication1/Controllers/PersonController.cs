@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ImdbDAL;
+using WebApplication1.Utils;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -18,11 +19,7 @@ namespace WebApplication1.Controllers
 						  where person.ActedMovies.Any()
 						  select person;
 
-			ViewData.Model = new PersonListModel
-			{
-				Persons = persons,
-				Title = "Skuespillere"
-			};
+			ViewData.Model = new EnumerableWithTitle<Person>(persons, "Skuespillere");
 			return View("Index");
         }
         public ViewResult Producers()
@@ -30,11 +27,7 @@ namespace WebApplication1.Controllers
 			var db = new ImdbDAL.ImdbContext();
 			var persons = db.Persons.Where(person => person.ProducedMovies.Any());
 
-			ViewData.Model = new PersonListModel
-			{
-				Persons = persons,
-				Title = "produsenter"
-			};
+			ViewData.Model = new EnumerableWithTitle<Person>(persons, "produsenter");
 			return View("Index");
 		}
 		public ViewResult Directors()
@@ -44,11 +37,7 @@ namespace WebApplication1.Controllers
 						  where person.DirectedMovies.Any()
 						  select person;
 
-			ViewData.Model = new PersonListModel
-			{
-				Persons = persons,
-				Title = "Regisører"
-			};
+			ViewData.Model = new EnumerableWithTitle<Person>(persons, "Regisører");
 			return View("Index");
 		}
 

@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Movie>
+﻿@model EnumerableWithTitle<Movie>
 
 <h2>Filmer</h2>
-<p>@ViewBag.Genre</p>
+<p>@Model.Title</p>
 <ul>
 	@foreach (var movie in Model)
 	{

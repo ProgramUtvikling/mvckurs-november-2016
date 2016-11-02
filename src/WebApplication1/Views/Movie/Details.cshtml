@@ -12,11 +12,6 @@
 <p>@Model.Description</p>
 
 
-<h3>Skuespillere</h3>
-@Html.Partial("_Persons", Model.Actors)
-
-<h3>Regisører</h3>
-@Html.Partial("_Persons", Model.Directors)
-
-<h3>Produsenter</h3>
-@Html.Partial("_Persons", Model.Producers)
+@Html.Partial("_Persons", Model.Actors.WithTitle("Skuespillere"))
+@*@Html.Partial("_Persons", Model.Directors.WithTitle("Regisører"))
+@Html.Partial("_Persons", Model.Producers.WithTitle("Produsenter"))*@

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Utils;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -41,8 +42,7 @@ namespace WebApplication1.Controllers
 						 where movie.Genre.Name == genrename
 						 select movie;
 
-			ViewData.Model = movies;
-			ViewBag.Genre = genrename;
+			ViewData.Model = movies.WithTitle(genrename);
 			return View("Index");
 		}
 	}

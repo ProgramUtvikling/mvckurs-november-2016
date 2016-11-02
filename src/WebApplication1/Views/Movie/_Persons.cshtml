@@ -1,8 +1,14 @@
-﻿@model IEnumerable<Person>
+﻿@model EnumerableWithTitle<Person>
 
-<ul>
-	@foreach (var person in Model)
-	{
-		<li>@Html.ActionLink(person.Name, "Details", "Person", new { id = person.PersonId }, null)</li>
-	}
-</ul>
+@if (Model.Any())
+{
+	<h3>@Model.Title</h3>
+	<ul>
+		@foreach (var person in Model)
+		{
+			<li>
+				@Html.ActionLink(person.Name, "Details", "Person", new { id = person.PersonId }, null)
+			</li>
+		}
+	</ul>
+}

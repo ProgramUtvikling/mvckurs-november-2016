@@ -2,33 +2,6 @@
 
 <h2>@Model.Name</h2>
 
-Spilt i:
-<ul>
-	@foreach (var movie in Model.ActedMovies)
-	{
-		<li>
-			<a asp-action="Details" asp-controller="Movie" asp-route-id="@movie.MovieId">@movie.Title</a>
-		</li>
-	}
-</ul>
-
-Regisert:
-<ul>
-	@foreach (var movie in Model.DirectedMovies)
-	{
-		<li>
-			<a asp-action="Details" asp-controller="Movie" asp-route-id="@movie.MovieId">@movie.Title</a>
-		</li>
-	}
-</ul>
-
-Produsert:
-<ul>
-	@foreach (var movie in Model.ProducedMovies)
-	{
-		<li>
-			<a asp-action="Details" asp-controller="Movie" asp-route-id="@movie.MovieId">@movie.Title</a>
-		</li>
-	}
-</ul>
-
+@Html.Partial("_Movies", Model.ActedMovies.WithTitle("Spilt i"))
+@Html.Partial("_Movies", Model.DirectedMovies.WithTitle("Regisert"))
+@Html.Partial("_Movies", Model.ProducedMovies.WithTitle("Produsert"))
