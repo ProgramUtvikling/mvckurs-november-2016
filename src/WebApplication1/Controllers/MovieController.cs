@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Utils;
+using ImdbDAL;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,7 +16,7 @@ namespace WebApplication1.Controllers
         {
 			var db = new ImdbDAL.ImdbContext();
 			var movies = db.Movies.ToList();
-			ViewData.Model = movies;
+			ViewData.Model = movies.WithTitle<Movie>(null);
 			return View();
         }
 
