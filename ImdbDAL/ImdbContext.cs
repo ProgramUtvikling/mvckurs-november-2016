@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Entity;
+using Microsoft.Extensions.Options;
 
 namespace ImdbDAL
 {
 	public class ImdbContext : DbContext
 	{
-		public ImdbContext()
-			: base(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Imdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+		public ImdbContext(IOptions<ImdbSettings> accessor)
+			: base(accessor.Value.ConnectionString)
 		{
 		}
 

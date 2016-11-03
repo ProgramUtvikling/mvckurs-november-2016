@@ -4,6 +4,7 @@
 <ul>
 	<li>
 		@Html.ActionLink("Alle Filmer", "Index", "Movie")
+		(@Html.ActionLink("xml", "Movies", "ImdbApi")/@Html.ActionLink("json", "Movies", "ImdbApi",new{ fmt="json"}, null))
 	</li>
 	<li>
 		@Html.ActionLink("Alle Genre", "Genres", "Movie")
