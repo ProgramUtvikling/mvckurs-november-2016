@@ -22,3 +22,24 @@
 		@Html.ActionLink("Regisører", "Directors", "Person")
 	</li>
 </ul>
+<ul>
+	<li>
+		@Html.ActionLink("Logg på", "Logon", "Account")
+	</li>
+	<li>
+		@Html.ActionLink("Logg ut", "SignOut", "Account")
+	</li>
+	<li>
+		@Html.ActionLink("Status", "LogonStatus", "Account")
+	</li>
+</ul>
+<ul>
+	<li>
+		<a asp-action="Index" asp-controller="Movie" asp-area="Admin">Administrasjon</a>
+	</li>
+</ul>
+<ul>
+	<li>
+		<a asp-action="Demo" asp-controller="Home">Demo</a>
+	</li>
+</ul>

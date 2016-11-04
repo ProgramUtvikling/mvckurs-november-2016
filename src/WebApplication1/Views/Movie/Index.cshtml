@@ -3,7 +3,7 @@
 <h2>Filmer</h2>
 <p>@Model.Title</p>
 <ul>
-	@foreach (var movie in Model)
+	@foreach (var movie in Model.OrderBy(m => m.Title))
 	{
 		<li>
 			@Html.ActionLink(movie.Title, "Details", "Movie", new { id=movie.MovieId }, null)

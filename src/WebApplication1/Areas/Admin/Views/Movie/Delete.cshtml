@@ -1,0 +1,10 @@
+﻿@model MovieDeleteModel
+
+<h2>Vil du slette @Model.Title</h2>
+<form method="post">
+	@Html.AntiForgeryToken()
+	<p>Originaltittel: @Model.OriginalTitle</p>
+	<p>Produksjonsår: @Model.ProductionYear</p>
+	<button>Slett filmen!</button>
+</form>
+<a asp-action="Index">Tilbake til listen</a>

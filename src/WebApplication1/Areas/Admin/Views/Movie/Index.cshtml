@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MovieIndexModel>
+<h2>Administrer filmer</h2>
+
+<a asp-action="Create">Registrer en film</a>
+
+<table>
+	<thead>
+		<tr>
+			<th>Tittel</th>
+			<th>Lengde</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var movie in Model.OrderBy(m => m.Title))
+		{
+			<tr>
+				<td>
+					@movie.Title
+				</td>
+				<td>
+					@Html.DisplayFor(x => movie.RunningLength)
+				</td>
+				<td>
+					<a asp-action="Details" asp-controller="Movie"  asp-route-id="@movie.Id" asp-area="">Se detaljer</a>
+					<a asp-action="Edit" asp-route-id="@movie.Id">Rediger</a>
+					<a asp-action="Delete" asp-route-id="@movie.Id">Slett</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

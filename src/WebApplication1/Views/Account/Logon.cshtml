@@ -1,0 +1,18 @@
+﻿@model LogonModel
+
+<form method="post">
+	@Html.AntiForgeryToken()
+	<label asp-for="Username"></label>
+	<input asp-for="Username" />
+	<span asp-validation-for="Username"></span>
+	<br />
+	<label asp-for="Password"></label>
+	<input asp-for="Password" />
+	<span asp-validation-for="Password"></span>
+	<br />
+	<input asp-for="RememberMe" />
+	<label asp-for="RememberMe"></label>
+	<span asp-validation-for="RememberMe"></span>
+	<br />
+	<button>Log på</button>
+</form>

@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Utils;
 using ImdbDAL;
 using System.Data.Entity;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WebApplication1.Controllers
 {
+	//[Authorize]
 	public class MovieController : Controller
 	{
 		private readonly ImdbContext _db;

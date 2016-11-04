@@ -48,12 +48,20 @@ namespace WebApplication1
             }
 
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
 
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
+			app.UseCookieAuthentication(new CookieAuthenticationOptions
+			{
+				LoginPath = new PathString("/Account/Logon"),
+				AutomaticChallenge = true,
+				AuthenticationScheme = "MinAuthMellomvare",
+				AutomaticAuthenticate = true
+			});
+
+			//app.UseMvcWithDefaultRoute();
+			app.UseMvc(routes => {
+				routes.MapRoute("Area route", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+				routes.MapRoute("Default route", "{controller=Home}/{action=Index}/{id?}");
+			});
         }
     }
 }

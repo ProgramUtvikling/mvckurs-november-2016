@@ -1,0 +1,57 @@
+﻿@model MovieCreateModel
+<h2>Registrer en film</h2>
+
+<form asp-action="Create" method="post">
+	<label asp-for="Id"></label>
+	<br />
+	<input asp-for="Id" />
+	<span asp-validation-for="Id"></span>
+	<br />
+	<br />
+	<label asp-for="Title"></label>
+	<br />
+	<input asp-for="Title" />
+	<span asp-validation-for="Title" ></span>
+	<br />
+	<br />
+	<label asp-for="OriginalTitle"></label>
+	<br />
+	<input asp-for="OriginalTitle" />
+	<span asp-validation-for="OriginalTitle" ></span>
+	<br />
+	<br />
+	<label asp-for="Description"></label>
+	<br />
+	<textarea asp-for="Description" rows="5" cols="40"></textarea>
+	<span asp-validation-for="Description" ></span>
+	<br />
+	<br />
+	<label asp-for="ProductionYear"></label>
+	<br />
+	<input asp-for="ProductionYear" />
+	<span asp-validation-for="ProductionYear" ></span>
+	<br />
+	<br />
+	<label asp-for="RunningLengthHours"></label>
+	<br />
+	<input asp-for="RunningLengthHours" />
+	<span asp-validation-for="RunningLengthHours" ></span>
+	<br />
+	<br />
+	<label asp-for="RunningLengthMinutes"></label>
+	<br />
+	<input asp-for="RunningLengthMinutes" />
+	<span asp-validation-for="RunningLengthMinutes" ></span>
+	<br />
+	<br />
+	<label asp-for="GenreId"></label>
+	<br />
+	<select asp-for="GenreId" asp-items="ViewBag.Genres">
+		<option>-- Velg sjanger fra listen --</option>
+	</select>
+	<span asp-validation-for="GenreId" ></span>
+	<br />
+	<br />
+	<button>Registrer</button>
+</form>
+<a asp-action="Index">Tilbake til listen</a>

@@ -2,7 +2,7 @@
 
 <h2>@Model.Title</h2>
 <ul>
-	@foreach (var person in Model)
+	@foreach (var person in Model.OrderBy(p => p.Name))
 	{
 		<li>
 			<a asp-action="Details" asp-controller="Person" asp-route-id="@person.PersonId">@person.Name</a>

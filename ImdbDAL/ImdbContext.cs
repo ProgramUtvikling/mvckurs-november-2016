@@ -9,6 +9,11 @@ namespace ImdbDAL
 {
 	public class ImdbContext : DbContext
 	{
+		public ImdbContext(string connectionString)
+			: base(connectionString)
+		{
+		}
+
 		public ImdbContext(IOptions<ImdbSettings> accessor)
 			: base(accessor.Value.ConnectionString)
 		{
