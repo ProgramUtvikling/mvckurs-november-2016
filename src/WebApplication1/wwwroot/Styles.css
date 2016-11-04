@@ -4,3 +4,46 @@
 	background-size: 100% 70px;
 	padding: 0;
 }
+
+/* css */
+
+.field-validaton-valid { display: none; }
+
+.field-validation-error {
+    color: red;
+}
+
+.input-validation-error {
+    border: thin solid red;
+    background-color: hsl(0, 100%, 90%);
+}
+
+.validation-summary-valid { display: none; }
+
+.validation-summary-errors {
+    color: red;
+}
+
+li{
+	border: solid 5px black;
+	padding: .5em;
+	transition: 1s;
+}
+
+li+li{
+	border-top: none;
+}
+
+#root li:hover{
+	transform: rotate(90deg);
+
+	transition: .1s;
+	transition: font-size 1s;
+	background-color: red;
+	font-size: 2em;
+}
+
+/*body{
+	transform: rotate(1deg);
+}*/
+
